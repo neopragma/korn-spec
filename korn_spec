@@ -84,7 +84,7 @@ function pass {
 }
 
 function fail {
-	echo "**** FAIL: it $_it_ | expected: ${_expected_[@]} | actual: $_actual_"
+	echo "**** FAIL: it $_it_ | actual: ${_expected_[@]} | expected: $_actual_"
 }
 
 function it {

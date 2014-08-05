@@ -1,9 +1,9 @@
-#!/bin/bash
+#!/usr/bin/ksh
 #==================================================================================
-# Unit tests for bash_spec
+# Unit tests for korn_spec
 #
 #==================================================================================
-. bash_spec
+. ./korn_spec
 
 function equality_of_scalar_value {
     it "reports two scalar values are equal"
@@ -31,13 +31,13 @@ function string_does_not_match_regex_pattern {
 
 function array_contains_value {
 	it "reports an array contains a given value"
-	declare -a arr=(1 2 3 4)
+	set -A arr 1 2 3 4
 	expect "${arr[@]}" to_contain 3
 }
 
 function array_does_not_contain_value {
 	it "reports an array does not contain a given value"
-	declare -a arr=(1 2 3 4)
+	set -A arr 1 2 3 4
 	expect "${arr[@]}" not to_contain 5
 }
 
@@ -80,7 +80,7 @@ function package_is_not_installed {
 	expect bashx not to_be_installed
 }
 
-print_header bash_spec
+print_header korn_spec
 equality_of_scalar_value
 nonequality_of_scalar_value
 string_matches_regex_pattern
