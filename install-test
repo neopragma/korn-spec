@@ -1,0 +1,25 @@
+#!/usr/bin/ksh
+#==============================================================================
+# Ensure certain packages are installed. (Simple example)
+#==============================================================================
+
+. korn_spec
+
+print_header 'Verify configuration'
+
+for package in '/usr/bin/xinit' '/usr/bin/vi' '/usr/bin/ssh'
+do
+    it "verifies package $package is installed"
+    expect $package to_exist
+done
+
+for package in '/usr/bin/xinit' '/usr/bin/ssh'
+do
+    it "verifies permissions on $package"
+    expect $package to_have_mode '-rwxr-xr-x'
+done
+
+it "verifies permissions on vi"
+expect '/usr/bin/vi' to_have_mode 'lrwxrwxrwx'
+
+print_trailer
