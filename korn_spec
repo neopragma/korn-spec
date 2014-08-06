@@ -1,4 +1,4 @@
-#!/usr/bin/korn
+#!/usr/bin/ksh
 #==================================================================================
 # BDD-style testing framework for korn scripts.
 #
@@ -12,15 +12,17 @@
 # expect filename [not] to_have_mode modestring   Verify file mode (permissions)
 #
 # Author: Dave Nicolette
-# Date: 29 Jul 2014
+# Date: 5 Aug 2014
 #==================================================================================
 _count_=0
 _passed_=0
 _failed_=0
+_version_='1.0 2014-08-05'
 
 function show_help {
     echo
-    echo 'bash_spec usage: Call these functions from your test script'
+    echo "korn_spec version $_version_"
+    echo 'Usage: Call these functions from your test script'
     echo 'print_header "name"                             Echoes title line with "name"'
     echo 'print_trailer                                   Echoes # of examples, passed, failed'
     echo 'it "description"                                Description of example'
