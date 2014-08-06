@@ -17,8 +17,5 @@ function fizz_it {
 	then
 	    fizz_result="${fizz_result}Baz"
 	fi 
-	if [ "$1" == '' ]
-	then
-	    fizz_result="$1"
-	fi    
+	[ "$fizz_result" ] || fizz_result="$1" 
 }

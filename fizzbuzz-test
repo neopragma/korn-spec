@@ -6,15 +6,6 @@
 . ./korn_spec
 . ./fizzbuzz-korn
 
-function numbers_divisible_by_5_and_7 {
-    for i in 3 6 9 81
-    do
-       it "returns Fizz for $i"
-       fizz_it $i
-       expect $fizz_result to_be 'Fizz'
-    done
-}
-
 function numbers_divisible_by_3 {
     for i in 3 6 9 81
     do
@@ -78,6 +69,21 @@ function numbers_divisible_by_3_and_5_and_7 {
     done
 }
 
+function numbers_not_divisible_by_3_or_5_or_7 {
+	for i in 2 8 811
+	do
+	    it "returns $i for $i"
+	    fizz_it $i
+	    expect $fizz_result to_be "$i"
+	done  
+}
+
+function zero_returns_zero {
+	  it "returns zero when input is zero"
+	  fizz_it 0
+	  expect $fizz_result to_be '0'
+}
+
 print_header fizzbuzz_korn
 numbers_divisible_by_3
 numbers_divisible_by_5
@@ -86,6 +92,8 @@ numbers_divisible_by_3_and_5
 numbers_divisible_by_3_and_7
 numbers_divisible_by_5_and_7
 numbers_divisible_by_3_and_5_and_7
+numbers_not_divisible_by_3_or_5_or_7
+zero_returns_zero
 print_trailer
 
 exit 0

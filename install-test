@@ -3,7 +3,7 @@
 # Ensure certain packages are installed. (Simple example)
 #==============================================================================
 
-. korn_spec
+. ./korn_spec
 
 print_header 'Verify configuration'
 
