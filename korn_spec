@@ -163,8 +163,8 @@ function to_have_mode {
 }
 
 function to_be_installed {
-    _actual_="$(dpkg-query -l ${_expected_[0]} 2>/dev/null | grep ${_expected_[0]})"
-    if [[ "$_actual_" != "" ]]; then
+    _actual_="$(dpkg-query -l ${_expected_[0]})" 
+    if ! [[ "$_actual_" == '' ]]; then
         _pass_=true
     else
         _pass_=false
